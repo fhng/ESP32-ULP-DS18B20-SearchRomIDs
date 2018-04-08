@@ -3,7 +3,7 @@
 install and test run:
 
 1. git clone https://github.com/fhng/DS18B20-Search-RomIDs.git
-2. cd to proejct file
+2. cd to project file
 3. make menuconfig
 4. make flash monitor
 
