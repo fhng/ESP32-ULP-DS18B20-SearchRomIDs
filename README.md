@@ -36,7 +36,6 @@ Entering deep sleep
 ---- RomID 1 Byte 7--------- 0x0
 
 ---- RomID 1 Byte 8--------- 0xf
-
 <br />
 ---- RomID 2 Byte 1--------- 0x28
 
