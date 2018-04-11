@@ -39,24 +39,42 @@ stack:
 stackEnd:
 	.long 0
 
-	.global romID 
-romID:	
-	.long 0		// Byte 0: 
-	.long 0		// Byte 1: 
-	.long 0		// Byte 2: 
-	.long 0		// Byte 3: 
-	.long 0 	// Byte 4: 
-	.long 0		// Byte 5: 
-	.long 0		// Byte 6: 
-	.long 0		// Byte 7: 
-	.long 0		// Byte 8: 
-	.long 0		// Byte 9: 
-	.long 0		// Byte 10: 
-	.long 0		// Byte 11: 
-	.long 0 	// Byte 12: 
-	.long 0		// Byte 13: 
-	.long 0		// Byte 14: 
-	.long 0		// Byte 15: 
+	.global romID
+romID:  
+        .long 0         // Byte 0: Device 1 start
+        .long 0         // Byte 1: 
+        .long 0         // Byte 2: 
+        .long 0         // Byte 3: 
+        .long 0         // Byte 4: 
+        .long 0         // Byte 5:  
+        .long 0         // Byte 6:  
+        .long 0         // Byte 7: 
+        .long 0         // Byte 8: Device 1 end
+        .long 0         // Byte 9: Device 2 start
+        .long 0         // Byte 10:
+        .long 0         // Byte 11:
+        .long 0         // Byte 12:
+        .long 0         // Byte 13: 
+        .long 0         // Byte 14:
+        .long 0         // Byte 15: Device 2 end
+        .long 0         // Byte 16: Device 3 start
+        .long 0         // Byte 17:
+        .long 0         // Byte 18:
+        .long 0         // Byte 19:
+        .long 0         // Byte 20:
+        .long 0         // Byte 21:
+        .long 0         // Byte 22:
+        .long 0         // Byte 23: Device 3 end
+/*
+        .long 0         // Byte 24: Device 4 start
+        .long 0         // Byte 25:
+        .long 0         // Byte 26:
+        .long 0         // Byte 27:
+        .long 0         // Byte 28:
+        .long 0         // Byte 29:
+        .long 0         // Byte 30:
+        .long 0         // Byte 31: Device 4 end
+*/
 
 	.global discrepmarker
 discrepmarker:
