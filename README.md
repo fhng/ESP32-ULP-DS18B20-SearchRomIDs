@@ -12,6 +12,8 @@ main project is here https://github.com/fhng/ESP32-ULP-1-Wire, this project has 
 ## Example output
 
 Note: GPI015 is connected to GND to disable ROM bootloader output.
+
+Note: I only have 2 DS18B20 so I searched two time.
 ```
 Not ULP wakeup, inititializing ULP
 Entering deep sleep
