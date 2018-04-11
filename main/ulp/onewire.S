@@ -106,9 +106,11 @@ entry:
 	psr
 	jump search_rom
 
-	move r0, 0
+	move r0, 0			// Counter for looping 8 bytes
+					// search_rom stores the result in romID, copy them before calling it again.
+					// Note to self: Update it later so the copying is not needed.
 copy_8bytes:
-	move r1, romID
+	move r1, romID			
 	add r1, r1, r0
 	move r2, romID1
 	add r2, r2, r0
