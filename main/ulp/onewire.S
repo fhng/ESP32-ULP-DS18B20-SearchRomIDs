@@ -39,14 +39,6 @@ stack:
 stackEnd:
 	.long 0
 
-	.global temperatureC
-temperatureC:
-	.long 0
-	
-	.global temperatureF
-temperatureF:
-	.long 0
-
 	.global romID 
 romID:	
 	.long 0		// Byte 0: 
@@ -57,17 +49,14 @@ romID:
 	.long 0		// Byte 5: 
 	.long 0		// Byte 6: 
 	.long 0		// Byte 7: 
-
-	.global romID1
-romID1:
-	.long 0		// Byte 0: 
-	.long 0		// Byte 1: 
-	.long 0		// Byte 2: 
-	.long 0		// Byte 3: 
-	.long 0 	// Byte 4: 
-	.long 0		// Byte 5: 
-	.long 0		// Byte 6: 
-	.long 0		// Byte 7: 
+	.long 0		// Byte 8: 
+	.long 0		// Byte 9: 
+	.long 0		// Byte 10: 
+	.long 0		// Byte 11: 
+	.long 0 	// Byte 12: 
+	.long 0		// Byte 13: 
+	.long 0		// Byte 14: 
+	.long 0		// Byte 15: 
 
 	.global discrepmarker
 discrepmarker:
@@ -106,27 +95,6 @@ entry:
 	psr
 	jump search_rom
 
-	move r0, 0			// Counter for looping 8 bytes
-					// search_rom stores the result in romID, copy them before calling it again.
-					// Note to self: Update it later so the copying is not needed.
-copy_8bytes:
-	move r1, romID			
-	add r1, r1, r0
-	move r2, romID1
-	add r2, r2, r0
-
-	push r0
-
-	ld r0, r1, 0
-	st r0, r2, 0
-	move r0, 0x00
-	st r0, r1, 0
-
-	pop r0
-
-	add r0, r0, 1
-	jumpr copy_8bytes, 8, LT
-
 	psr
 	jump search_rom
 
@@ -160,9 +128,9 @@ search_rom:
 	st r1, r0, 0
 
 	// init byte_index (8 Bytes)
-	move r0, byte_index
-	move r1, 0
-	st r1, r0, 0			
+	// move r0, byte_index
+	// move r1, 0
+	// st r1, r0, 0			
 
 	psr
 	jump rst_pulse
@@ -172,7 +140,12 @@ search_rom:
 	psr
 	jump send_byte
 
+	// Byte counter from 0 to 7
+	move r0, 0
+
 loop_8bytes:
+	push r0				// save Byte counter from 0 to 7
+
 	// init or reset bit_mask bitpos[7:0] after each Byte increments
 	move r0, bit_mask
 	move r1, 0
@@ -289,8 +262,11 @@ no_rsh:
 	move r1, byte_index
 	ld r0, r1, 0
 	add r0, r0, 1
-	st r0, r1, 0			// byte_index++ and store
+	st r0, r1, 0			// byte_index++ 
 
+	pop r0
+	add r0, r0, 1
+	
 	jumpr loop_8bytes, 8, LT
 
 	move r0, lastDiscrep
