@@ -19,6 +19,7 @@ Not ULP wakeup, inititializing ULP
 Entering deep sleep
 <<<<<< Result: 1 >>>>>>
 <<<<<< Total Byte: 16 >>>>>>
+<<<<<< Number of Devices: 2 >>>>>>
 
 ---- RomID 1 Byte 1--------- 0x28
 ---- RomID 1 Byte 2--------- 0x20
