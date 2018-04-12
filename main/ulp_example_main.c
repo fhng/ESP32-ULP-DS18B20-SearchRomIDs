@@ -44,9 +44,10 @@ void app_main()
 	//temperatureC = ulp_temperatureC & UINT16_MAX;
 	//temperatureF = ulp_temperatureF & UINT16_MAX;
 	int number_bytes;
-	number_bytes = (int)ulp_byte_index & UINT16_MAX;;
+	number_bytes = (int)ulp_byte_index & UINT16_MAX;
 	printf("<<<<<< Result: %d >>>>>>\n",counter);
-	printf("<<<<<< Total Byte: %d >>>>>>\n",number_bytes);
+	printf("<<<<<< Total Bytes read: %d >>>>>>\n",number_bytes);
+	printf("<<<<<< Number of Devices: %d >>>>>>\n",number_bytes/8);
 	//printf("---- Extra_Hold --------- 0x%x\n", ulp_temperatureC & UINT16_MAX);
         printf("---- RomID 1 Byte 1--------- 0x%x\n", *(romIDpt + 0) & UINT16_MAX);
         printf("---- RomID 1 Byte 2--------- 0x%x\n", *(romIDpt + 1) & UINT16_MAX);
