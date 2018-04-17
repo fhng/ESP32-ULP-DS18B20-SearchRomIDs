@@ -48,9 +48,9 @@ romID:
         .long 0         // Byte 4: 
         .long 0         // Byte 5:  
         .long 0         // Byte 6:  
-        .long 0         // Byte 7: 
-        .long 0         // Byte 8: Device 1 end
-        .long 0         // Byte 9: Device 2 start
+        .long 0         // Byte 7: Device 1 end
+        .long 0         // Byte 8: Device 2 start
+        .long 0         // Byte 9: 
         .long 0         // Byte 10:
         .long 0         // Byte 11:
         .long 0         // Byte 12:
@@ -140,7 +140,7 @@ exit_wake:
 
 search_rom:
 
-	// init or reset bit_index 1-64 (8 Bytes) after one FULL romID(8 Bytes) search.
+	// init or reset on each 64bits, bit_index 1-64 (8 Bytes); FULL romID(8 Bytes) search.
 	move r0, bit_index
 	move r1, 0x01
 	st r1, r0, 0
@@ -153,7 +153,7 @@ search_rom:
 	psr
 	jump rst_pulse
 
-	// Send searchRom Command
+	// Send searchRom Command 0xF0
 	move r2, 0xF0
 	psr
 	jump send_byte
@@ -162,7 +162,7 @@ search_rom:
 	move r0, 0
 
 loop_8bytes:
-	push r0				// save Byte counter from 0 to 7
+	push r0				// save Byte counter
 
 	// init or reset bit_mask bitpos[7:0] after each Byte increments
 	move r0, bit_mask
