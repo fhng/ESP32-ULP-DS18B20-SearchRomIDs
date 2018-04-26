@@ -140,7 +140,7 @@ exit_wake:
 
 search_rom:
 
-	// init or reset on each 64bits, bit_index 1-64 (8 Bytes); FULL romID(8 Bytes) search.
+	// init or reset per 64bits, bit_index 1-64 (8 Bytes); FULL romID(8 Bytes) search.
 	move r0, bit_index
 	move r1, 0x01
 	st r1, r0, 0
