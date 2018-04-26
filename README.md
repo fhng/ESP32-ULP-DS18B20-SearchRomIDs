@@ -7,7 +7,7 @@ install and test run:
 3. make menuconfig
 4. make flash monitor
 
-main project is here https://github.com/fhng/ESP32-ULP-1-Wire, this project has a  more detailed readme.
+main project is here https://github.com/fhng/ESP32-ULP-1-Wire, this project has a longer/better readme.
 
 ## Example output
 
