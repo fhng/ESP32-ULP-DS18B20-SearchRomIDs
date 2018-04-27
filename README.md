@@ -1,4 +1,4 @@
-# DS18B20-Search-RomIDs
+# DS18B20-Search-RomIDs on ESP32 ULP
 
 install and test run:
 
